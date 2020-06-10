@@ -29,6 +29,7 @@ public class ReviewCompetitors {
 		System.out.println(Arrays.asList(topCompetitors));
 	}
 	
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public static ArrayList<String> getMostCompetitors(List<String> competitors, int topNCompetitors, ArrayList<String> reviews) {
 		ArrayList<String> res = new ArrayList<String>();
 		Map<String, Integer> map = new HashMap<String, Integer>();
