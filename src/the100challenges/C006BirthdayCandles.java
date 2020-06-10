@@ -22,13 +22,28 @@ public class C006BirthdayCandles {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		int n = 10;
+		int n = 1000;
 		int rn = 100;
 		int[] arr = new int[n];
 		Random r = new Random();
 		for (int i = 0; i < n; i++)
 			arr[i] = r.nextInt(rn);
 		
+		int age = r.nextInt(rn);
+		
+		System.out.println("Candles: " + Arrays.toString(arr) + "\nAge=" + age);
+		countBirthdayCandles(arr, n, age);
+	}
+
+	public static void countBirthdayCandles(int[] arr, int n, int age) {
+		int count = 0;
+		Arrays.sort(arr);
 		System.out.println(Arrays.toString(arr));
+		int max = arr[n - 1];
+		for (int i = n - 1; i >= 0; i--) {
+			if (arr[i] == max) count++;
+			else if (arr[i] < max) break;
+		}
+		System.out.println("Count=" + count);
 	}
 }
