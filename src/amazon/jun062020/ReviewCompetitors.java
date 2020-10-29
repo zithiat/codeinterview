@@ -9,7 +9,6 @@ import java.util.LinkedHashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 
 public class ReviewCompetitors {
 
@@ -51,21 +50,18 @@ public class ReviewCompetitors {
 			}
 		});
 		
-//		HashMap sortedMap = new LinkedHashMap();
-//		for (Iterator it = list.iterator(); it.hasNext();) {
-//			Map.Entry entry = (Map.Entry) it.next();
-//			sortedMap.put(entry.getKey(), entry.getValue());
-//		}
-//		System.out.println(Arrays.asList(sortedMap));
-//		Iterator<Map.Entry<String, Integer>> it = sortedMap.entrySet().iterator();
-//		while (it.hasNext() && topNCompetitors > 0) {
-//			res.add(it.next().getKey());
-//			topNCompetitors--;
-//		}
-		for (int i = 0; i < topNCompetitors; i++) {
-			res.add((String) ((Entry) list.get(i)).getKey());
+		HashMap sortedMap = new LinkedHashMap();
+		for (Iterator it = list.iterator(); it.hasNext();) {
+			Map.Entry entry = (Map.Entry) it.next();
+			sortedMap.put(entry.getKey(), entry.getValue());
 		}
+		System.out.println(Arrays.asList(sortedMap));
 		
+		Iterator<Map.Entry<String, Integer>> it = sortedMap.entrySet().iterator();
+		while (it.hasNext() && topNCompetitors > 0) {
+			res.add(it.next().getKey());
+			topNCompetitors--;
+		}
 		return res;
 	}
 
